@@ -1,0 +1,21 @@
+.bill-total {
+    &__total-bill{
+        color: black;
+        margin: 5px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        .--dark & {
+            color: gray;
+        }
+    }
+    &__price{
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 5px;
+
+        .--dark & {
+            color: black;
+        }
+    }
+}

@@ -1,0 +1,115 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient( rgb(80,179,255), rgb(119,196,255), rgb(161,219,255)); 
+    padding: 2rem 2rem;
+    height: 1500px;
+
+    &__image {
+        height: 500px;
+    }
+
+    &__name {
+        color: rgb(26, 24, 24);
+        font-weight: 800;
+        margin: 2rem;
+    }
+
+    &__bottom-container {
+        background-color: white;
+        border-radius: 2rem;
+        padding: 2rem 2rem 4rem 2rem;
+        position: relative;
+    }
+
+    &__description {
+        color: grey;
+    }
+
+    &__nav-link {
+        color: white;
+        background: #000;
+        border: solid 5px white;
+        height: 44px;
+        width: 44px;
+        line-height: 44px;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 44px;
+        position: absolute;
+        bottom: -22px;
+        left: calc((100% - 54px) / 2);
+        text-align: center;
+    }
+}
+
+
+.active-bill {
+    margin: 2rem;
+
+    &__recent-bills-container {
+        display: flex;
+        margin-top: 40px;
+    }
+
+    &__recent-bills {
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    &__see-all-button {
+        border: none;
+        background-color: transparent;
+        height: 20px;
+        color: gray;
+        cursor: pointer;
+    }
+}
+
+
+.split-bill {
+    text-align: center;
+
+    &__nav-bar {
+        display: flex;
+        padding: 2rem;
+    }
+    &__nav-link {
+        text-decoration: none;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    &__bill-info {
+        padding: 0 10px;
+        display: flex;
+        h2 {
+            flex-grow: 1;
+        }
+    }  
+}
+
+.button-box {
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0075FF;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button-box:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    color: black;
+}
