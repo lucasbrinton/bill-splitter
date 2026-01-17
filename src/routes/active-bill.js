@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { withLayout } from "../components/common/layout";
-import { mockCurrentBill, mockRecentBills } from "../components/common/mocks";
 import { BillDetails } from "../components/BillDetails";
 import { BillListItem } from "../components/BillListItem";
+import { withLayout } from "../components/common/layout";
+import { mockCurrentBill, mockRecentBills } from "../components/common/mocks";
 import { UserWelcome } from "../components/UserWelcome";
 import { countOrderItems } from "../components/utils";
 import "./style.scss";

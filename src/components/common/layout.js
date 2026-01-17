@@ -35,9 +35,8 @@ const Layout = ({ children }) => {
  * @example
  * const HomePage = withLayout(() => <div>Home Content</div>);
  */
-export const withLayout = (Component) => (props) =>
-  (
-    <Layout>
-      <Component {...props} />
-    </Layout>
-  );
+export const withLayout = (Component) => (props) => (
+  <Layout>
+    <Component {...props} />
+  </Layout>
+);

@@ -38,17 +38,14 @@ export const BillDetails = ({
       </div>
 
       <div className="bill-details__footer">
-        <div
-          className="bill-details__restaurant-logo"
-          src={restaurantLogo}
-        ></div>
+        <div className="bill-details__restaurant-logo" src={restaurantLogo} />
         <div className="bill-details__nav">
           <Link className="bill-details__nav-link" to="/split-bill">
             {">"}
           </Link>
         </div>
         <div className="bill-details__group-details">
-          <div className="bill-details__group-picture"></div>
+          <div className="bill-details__group-picture" />
           <div className="bill-details__group-size">{groupSize}</div>
         </div>
       </div>

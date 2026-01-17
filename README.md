@@ -30,14 +30,14 @@ Bill Splitter simplifies the often-awkward process of dividing expenses among gr
 
 ## 🛠 Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **React 18** | Component-based UI framework |
-| **React Router v6** | Client-side routing and navigation |
-| **SCSS** | Enhanced CSS with variables and nesting |
-| **Flexbox** | Responsive layout system |
-| **React Icons** | Icon library for UI elements |
-| **Local Storage API** | Client-side data persistence |
+| Technology            | Purpose                                 |
+| --------------------- | --------------------------------------- |
+| **React 18**          | Component-based UI framework            |
+| **React Router v6**   | Client-side routing and navigation      |
+| **SCSS**              | Enhanced CSS with variables and nesting |
+| **Flexbox**           | Responsive layout system                |
+| **React Icons**       | Icon library for UI elements            |
+| **Local Storage API** | Client-side data persistence            |
 
 ## 🚀 Installation & Setup
 
@@ -150,12 +150,14 @@ src/
 ## 📚 What I Learned
 
 ### Junior Developer (2022)
+
 - React fundamentals and component composition
 - Basic state management with useState
 - CSS preprocessors (SCSS)
 - Client-side routing with React Router
 
 ### Current Skills (2026)
+
 - **Advanced React Patterns:** Higher-order components, proper dependency management in hooks
 - **Code Documentation:** JSDoc for type safety and improved DX without TypeScript overhead
 - **Code Quality Tools:** ESLint and Prettier integration for consistent, error-free code
@@ -164,6 +166,7 @@ src/
 - **Performance Considerations:** Understanding re-render optimization opportunities
 
 ### Technical Growth Areas
+
 - Transitioned from "make it work" to "make it maintainable"
 - Developed appreciation for code readability as a first-class requirement
 - Learned to balance perfectionism with pragmatism (e.g., keeping JavaScript vs. adding TypeScript overhead)
@@ -213,4 +216,4 @@ GitHub: [github.com/yourusername](https://github.com/yourusername)
 
 ---
 
-*Built with ❤️ as a junior developer in 2022. Polished with experience in 2026.*
+_Built with ❤️ as a junior developer in 2022. Polished with experience in 2026._

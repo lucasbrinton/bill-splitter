@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 import ActiveBill from "./routes/active-bill";
 import Home from "./routes/home";
 import SplitBill from "./routes/split-bill";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 
 /**
  * Application entry point.
