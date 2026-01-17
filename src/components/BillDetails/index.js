@@ -1,9 +1,22 @@
-import "./style.scss";
-import BurgerIcon from "./burger.svg";
 import { Link } from "react-router-dom";
 import { BillTotal } from "../common/BillTotal";
 import { themes } from "../common/themes";
+import BurgerIcon from "./burger.svg";
+import "./style.scss";
 
+/**
+ * BillDetails component displays comprehensive bill information.
+ * Shows total price, order items breakdown, and navigation to bill splitting.
+ *
+ * @param {Object} props - Component properties
+ * @param {number} props.price - Total bill amount
+ * @param {string} props.currency - Currency symbol
+ * @param {Object.<string, number>} [props.orderItems={}] - Map of item names to quantities
+ * @param {string} [props.restaurantLogo=""] - URL or path to restaurant logo
+ * @param {number} [props.groupSize=1] - Number of people in the group
+ * @param {string} [props.theme=themes.LIGHT] - Visual theme for the component
+ * @returns {JSX.Element} Detailed bill information card
+ */
 export const BillDetails = ({
   price,
   currency,

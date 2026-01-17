@@ -1,13 +1,17 @@
-import { withLayout } from "../components/common/layout";
-import { MoneyAdjuster } from "../components/MoneyAdjuster";
-import { Price } from "../components/common/Price";
 import { useEffect, useState } from "react";
-import { BillTotal } from "../components/common/BillTotal";
 import { Link } from "react-router-dom";
+import { BillTotal } from "../components/common/BillTotal";
+import { withLayout } from "../components/common/layout";
 import { mockCurrentBill } from "../components/common/mocks";
+import { Price } from "../components/common/Price";
 import { themes } from "../components/common/themes";
+import { MoneyAdjuster } from "../components/MoneyAdjuster";
 import "./style.scss";
 
+/**
+ * Mock participant data for bill splitting.
+ * In a production app, this would come from a database or API.
+ */
 const mockParticipants = [
   {
     name: "Lucas Brinton",
@@ -26,9 +30,33 @@ const mockParticipants = [
   },
 ];
 
+/**
+ * Retrieves participant information by ID.
+ * @param {string} id - Participant's unique identifier
+ * @returns {Object} Participant object or empty object if not found
+ */
 const getParticipantById = (id) =>
-  mockParticipants.filter((p) => p.id === id)[0] ?? {};
+  mockParticipants.find((p) => p.id === id) ?? {};
 
+/**
+ * SplitBill page - Interactive bill splitting calculator.
+ *
+ * Features:
+ * - Automatic equal splitting
+ * - Manual adjustment per participant via sliders
+ * - Real-time balance calculation
+ * - Tip and missing cash tracking
+ * - Visual feedback on payment status
+ *
+ * State Management:
+ * - tip: Extra amount being paid (balance - totalBill)
+ * - balance: Current total of all participant contributions
+ * - equalShare: Calculated equal share per person
+ * - missingCash: Amount still needed to cover the bill
+ * - participantsBalance: Map of userId to their contribution amount
+ *
+ * @returns {JSX.Element} Bill splitting interface wrapped in layout
+ */
 const SplitBill = withLayout(() => {
   const [tip, setTip] = useState(0);
   const [balance, setBalance] = useState(0);
@@ -38,6 +66,7 @@ const SplitBill = withLayout(() => {
   const [participants] = useState(mockParticipants);
   const [totalBill] = useState(mockCurrentBill.price);
 
+  // Initialize equal split on mount
   useEffect(() => {
     const balance = {};
     const share = Math.ceil(totalBill / participants.length ?? 1);
@@ -49,31 +78,41 @@ const SplitBill = withLayout(() => {
     setBalance(newBalance);
     setTip(newBalance - totalBill);
     setEqualShare(share);
-  }, []);
+  }, [totalBill, participants]);
 
+  // Recalculate totals when individual balances change
   useEffect(() => {
-    // calc new balance
+    // Calculate new total balance
     let newTotalBalance = 0;
     Object.keys(participantsBalance).forEach(
       (userId) => (newTotalBalance += participantsBalance[userId])
     );
     setBalance(newTotalBalance);
 
-    // calc missing cash
+    // Calculate missing cash (only show if positive)
     const newMissingCash = totalBill - newTotalBalance;
     setMissingCash(newMissingCash < 0 ? 0 : newMissingCash);
 
-    // calc total tip
+    // Calculate total tip (only show if positive)
     const newTotalTip = newTotalBalance - totalBill;
     setTip(newTotalTip < 0 ? 0 : newTotalTip);
   }, [participantsBalance, totalBill]);
 
+  /**
+   * Updates a participant's contribution amount.
+   * @param {Object} params - Update parameters
+   * @param {string|number} params.value - New contribution value
+   * @param {string} params.userId - ID of participant to update
+   */
   const adjustBalance = ({ value, userId }) => {
     const newParticipantsBalance = { ...participantsBalance };
     newParticipantsBalance[userId] = parseFloat(value);
     setParticipantsBalance(newParticipantsBalance);
   };
 
+  /**
+   * Resets all participants to equal share amounts.
+   */
   const onSplitEqual = () => {
     const newBalance = {};
     Object.keys(participantsBalance).forEach(

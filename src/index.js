@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ActiveBill from "./routes/active-bill";
+import Home from "./routes/home";
+import SplitBill from "./routes/split-bill";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ActiveBill from "./routes/active-bill";
-import SplitBill from "./routes/split-bill";
-import Home from "./routes/home";
 
+/**
+ * Application entry point.
+ * Sets up routing for the Bill Splitter application with three main routes:
+ * - Home: Landing page
+ * - ActiveBill: Dashboard with current and recent bills
+ * - SplitBill: Interactive bill splitting interface
+ */
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -20,7 +27,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Performance monitoring - can be configured to send to analytics
 reportWebVitals();

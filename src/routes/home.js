@@ -1,8 +1,19 @@
-import { withLayout } from "../components/common/layout";
 import { Link } from "react-router-dom";
+import { withLayout } from "../components/common/layout";
 import Plate from "../plate.png";
 import "./style.scss";
 
+/**
+ * Home page component - Landing page for the Bill Splitter application.
+ * Displays welcome imagery and navigation to start splitting bills.
+ *
+ * Features:
+ * - Eye-catching visual with plate icon
+ * - Clear call-to-action for bill splitting
+ * - Simple, focused user experience
+ *
+ * @returns {JSX.Element} Home page wrapped in layout
+ */
 const Home = withLayout(() => (
   <div className="home">
     <div className="home__image">

@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
 
+/**
+ * Layout component provides consistent navigation structure across pages.
+ * Simple wrapper that adds a navigation bar to any child components.
+ *
+ * @param {Object} props - Component properties
+ * @param {React.ReactNode} props.children - Child components to render within the layout
+ * @returns {JSX.Element} Layout with navigation and children
+ */
 const Layout = ({ children }) => {
   return (
     <div>
@@ -17,10 +25,19 @@ const Layout = ({ children }) => {
   );
 };
 
+/**
+ * Higher-order component that wraps a component with the Layout.
+ * Enables consistent page structure across routes without repetitive code.
+ *
+ * @param {React.ComponentType} Component - The component to wrap with layout
+ * @returns {Function} A new component that renders the original within Layout
+ *
+ * @example
+ * const HomePage = withLayout(() => <div>Home Content</div>);
+ */
 export const withLayout = (Component) => (props) =>
   (
     <Layout>
-      {/* All props are passed through to the Component being wrapped */}
       <Component {...props} />
     </Layout>
   );

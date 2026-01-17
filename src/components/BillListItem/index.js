@@ -1,6 +1,19 @@
 import { FaGem } from "react-icons/fa";
 import "./style.css";
 
+/**
+ * BillListItem component displays a summary of a past bill.
+ * Renders bill information including title, date, price, and group size.
+ *
+ * @param {Object} props - Component properties
+ * @param {string} [props.title="Unknown bill"] - Bill or restaurant name
+ * @param {string} [props.date="N/A"] - Date of the bill
+ * @param {number} [props.price=0] - Total bill amount
+ * @param {string} [props.currency="$"] - Currency symbol
+ * @param {number} [props.groupSize=1] - Number of people in the group
+ * @param {React.ComponentType} [props.Icon=FaGem] - Icon component to display
+ * @returns {JSX.Element} Bill list item card
+ */
 export const BillListItem = ({
   title = "Unknown bill",
   date = "N/A",
@@ -11,7 +24,6 @@ export const BillListItem = ({
 }) => {
   return (
     <div className="bill-list-item">
-      {/* <img className='bill-list-item__image' src="https://cdn-icons-png.flaticon.com/512/4062/4062508.png"/> */}
       <div className="bill-list-item__image">
         <Icon size={36} color="gray" />
       </div>

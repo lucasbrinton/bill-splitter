@@ -1,12 +1,27 @@
-import { BillListItem } from "../components/BillListItem";
+import { useEffect, useState } from "react";
+import { withLayout } from "../components/common/layout";
+import { mockCurrentBill, mockRecentBills } from "../components/common/mocks";
 import { BillDetails } from "../components/BillDetails";
+import { BillListItem } from "../components/BillListItem";
 import { UserWelcome } from "../components/UserWelcome";
 import { countOrderItems } from "../components/utils";
-import { useState, useEffect } from "react";
-import { withLayout } from "../components/common/layout";
-import { mockRecentBills, mockCurrentBill } from "../components/common/mocks";
 import "./style.scss";
 
+/**
+ * ActiveBill page - Main dashboard showing current bill and recent history.
+ *
+ * Features:
+ * - Displays current active bill with details
+ * - Shows recent bills list (initially limited to 5)
+ * - Expandable recent bills section
+ * - User personalization with welcome message
+ *
+ * State Management:
+ * - currentBill: Active bill being processed
+ * - bills: List of recent bills to display
+ *
+ * @returns {JSX.Element} Active bill page wrapped in layout
+ */
 const ActiveBill = withLayout(() => {
   const [currentBill, setCurrentBill] = useState();
   const [bills, setBills] = useState(mockRecentBills.slice(0, 5));
@@ -18,6 +33,9 @@ const ActiveBill = withLayout(() => {
     });
   }, []);
 
+  /**
+   * Expands recent bills list to show all available bills.
+   */
   const onSeeAll = () => {
     setBills(mockRecentBills);
   };

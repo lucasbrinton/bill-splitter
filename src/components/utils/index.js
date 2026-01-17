@@ -1,13 +1,21 @@
+/**
+ * Counts the occurrences of each order item in an array.
+ * Useful for aggregating bill items to display quantity per product.
+ *
+ * @param {string[]} items - Array of product names
+ * @returns {Object.<string, number>} Object mapping product names to their quantities
+ *
+ * @example
+ * countOrderItems(['Burger', 'Fries', 'Burger'])
+ * // Returns: { Burger: 2, Fries: 1 }
+ */
 export const countOrderItems = (items) => {
   const orderItems = {};
 
   items.forEach((productName) => {
-    // let's check if the orderItems container object contains my key
-    if (orderItems.hasOwnProperty(productName)) {
-      // the productName key is defined, let's increment the count with 1
+    if (Object.prototype.hasOwnProperty.call(orderItems, productName)) {
       orderItems[productName] = orderItems[productName] + 1;
     } else {
-      // that means the productName key does not exist; we are seeing it for the first time
       orderItems[productName] = 1;
     }
   });
@@ -15,4 +23,14 @@ export const countOrderItems = (items) => {
   return orderItems;
 };
 
+/**
+ * Formats a numeric value to a fixed decimal price string.
+ *
+ * @param {number|string} val - The price value to format
+ * @returns {string} Price formatted to 2 decimal places
+ *
+ * @example
+ * formatPrice(10.5)   // Returns: "10.50"
+ * formatPrice("42.1") // Returns: "42.10"
+ */
 export const formatPrice = (val) => parseFloat(val).toFixed(2);
